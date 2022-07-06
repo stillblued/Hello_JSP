@@ -19,9 +19,9 @@ public class ElServ extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("id", "È«±æµ¿");
-		request.setAttribute("arr", Arrays.asList("¹Ù³ª³ª","»ç°ú","Æ÷µµ"));
-		request.getRequestDispatcher("/el.jsp")
+		request.setAttribute("id", "í™ê¸¸ë™");
+		request.setAttribute("arr", Arrays.asList("ë°”ë‚˜ë‚˜","ë”¸ê¸°","ì‚¬ê³¼"));
+		request.getRequestDispatcher("el.jsp")
 		       .forward(request, response);
 	
 	}

@@ -66,7 +66,7 @@ function validateForm(){
     </div>
     <div><label>jobId</label> 
     			<select name="jobId">
-			<c:forEach items="jobs" var="job">
+			<c:forEach items="${jobs}" var="job">
 				<option value="${job.getJobId()}">${job.getJobTitle()}
 			</c:forEach>	
 		  </select></div>
