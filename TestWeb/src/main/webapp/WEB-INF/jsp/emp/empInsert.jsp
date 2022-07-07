@@ -45,12 +45,27 @@ function validateForm(){
 	return true;
 }
 </script>
+
+<style>
+label {
+display: inline-block;
+background-color: #04AA6D;
+color: white;
+text-align: center;
+width: 200px;
+
+}
+
+
+</style>
+
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-사원등록
-   <form name="frm" action="empInsert" method="post" onsubmit="return validateForm()">
+<h3>사원등록</h3>
+   <form id="Frm" name="frm" action="empInsert" method="post" onsubmit="return validateForm()">
     <div><label>employeeId</label> <input name="employeeId"></div>
     <div><label>firstName</label> <input name="firstName"></div>
     <div><label>lastName</label> <input name="lastName"></div>

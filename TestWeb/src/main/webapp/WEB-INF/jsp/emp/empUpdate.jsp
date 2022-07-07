@@ -46,6 +46,20 @@ function validateForm(){
 	return true;
 }
 </script>
+
+<style>
+label {
+display: inline-block;
+background-color: #04AA6D;
+color: white;
+text-align: center;
+width: 200px;
+
+}
+
+
+</style>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
