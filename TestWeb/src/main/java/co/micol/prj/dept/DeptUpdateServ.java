@@ -37,8 +37,7 @@ public class DeptUpdateServ extends HttpServlet {
 		DeptDAO deptDAO = new DeptDAO();
 		int cnt = deptDAO.update(vo);
 		//결과출력
-		response.getWriter()
-				.append(cnt +"건이 등록됨");
+		response.getWriter().append(cnt +"건이 수정됨");
 	}
 
 }

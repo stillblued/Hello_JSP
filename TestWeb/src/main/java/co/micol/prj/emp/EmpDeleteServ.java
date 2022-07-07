@@ -20,7 +20,7 @@ public class EmpDeleteServ extends HttpServlet {
 		int cnt = dao.delete(employeeId);
 		
 		
-		request.setAttribute("msg", cnt + "이 삭제됨");
+		request.setAttribute("msg", cnt + "건이 삭제됨");
 		request.getRequestDispatcher("/WEB-INF/jsp/message.jsp")
 		       .forward(request, response);
 	}

@@ -61,6 +61,6 @@ public class EmpUpdateServ extends HttpServlet {
 		
 		//결과출력
 		response.getWriter()
-				.append(cnt +"건이 등록됨");
+				.append(cnt +"건이 수정됨");
 	}
 }

@@ -76,9 +76,25 @@ public class DeptDAO  extends DAO{
 	//수정
 	public int update(DeptVO vo) {
 		int r = 0;
-				
+		try{
+			
+			getConnect();
+			String sql = "update departments set department_name =? where department_id =?";
+		
+			psmt = conn.prepareStatement(sql);
+		
+			psmt.setString(1, vo.getDepartmentName());
+			psmt.setString(2, vo.getDepartmentId());
+			r = psmt.executeUpdate();			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			//4.연결해제
+			disconnect();  
+		}	
 		return r;
 	}
+	
 	//삭제
 	public int delete(String depaertmentId) {
 		int r = 0;

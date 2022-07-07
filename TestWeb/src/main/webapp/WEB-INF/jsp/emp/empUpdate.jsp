@@ -50,7 +50,7 @@ function validateForm(){
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-사원수정
+<h3>사원수정</h3>
 <%
 	EmpVO vo = (EmpVO)request.getAttribute("emp");
 %>
