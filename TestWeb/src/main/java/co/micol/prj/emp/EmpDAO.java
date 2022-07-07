@@ -42,10 +42,11 @@ public class EmpDAO extends DAO {
 				vo.setEmployeeId(rs.getString("employee_id"));
 				vo.setFirstName(rs.getString("first_name"));
 				vo.setLastName(rs.getString("last_name"));
-				vo.setSalary(rs.getString("salary"));
+				vo.setEmail(rs.getString("email"));
 				vo.setHireDate(rs.getString("hire_date"));
 				vo.setDepartmentId(rs.getString("department_id"));
 				vo.setJobId(rs.getString("job_id"));
+				vo.setManagerId(rs.getString("manager_id"));
 			}			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -126,14 +127,36 @@ public class EmpDAO extends DAO {
 			disconnect();  
 		}	
 		
-		return 0;
+		return r;
 	}
 	
 	//수정
 	public int update(EmpVO vo) {
-		int cnt =0;
+		int r = 0;
+		try{
 		
-		return cnt;
+			getConnect();
+			String sql = "update employees set first_name=?, last_name=?, email=?, hire_date=?, department_id=?,job_id=?, manager_id=? where employee_id =?";
+		
+			psmt = conn.prepareStatement(sql);
+		
+			psmt.setString(5, vo.getDepartmentId());
+			psmt.setString(7, vo.getManagerId());
+			psmt.setString(6, vo.getJobId());
+			psmt.setString(4, vo.getHireDate());
+			psmt.setString(8, vo.getEmployeeId());
+			psmt.setString(3, vo.getEmail());
+			psmt.setString(1, vo.getFirstName());
+			psmt.setString(2, vo.getLastName());
+			r = psmt.executeUpdate();			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			//4.연결해제
+			disconnect();  
+		}	
+		
+		return r;
 	}
 	
 	//삭제

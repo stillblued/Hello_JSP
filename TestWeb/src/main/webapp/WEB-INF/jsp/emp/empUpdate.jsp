@@ -50,11 +50,11 @@ function validateForm(){
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-사원등록
+사원수정
 <%
 	EmpVO vo = (EmpVO)request.getAttribute("emp");
 %>
-   <form name="frm" action="empInsert" method="post" onsubmit="return validateForm()">
+   <form name="frm" action="empUpdate" method="post" onsubmit="return validateForm()">
     <div><label>employeeId</label> 
          <input name="employeeId" readonly="readonly" value="<%=vo.getEmployeeId()%>"></div>
     <div><label>firstName</label> 
@@ -66,7 +66,7 @@ function validateForm(){
     <div><label>hireDate</label> 
          <input type="date" name="hireDate"  value="<%=vo.getHireDate().substring(0, 10)%>"></div>
     <div><label>department_id</label> 
-    <c:forEach  items="depts" var="dept"> 
+    <c:forEach  items="${depts}" var="dept"> 
     	<input type="radio" name="departmentId" value="${dept.getDepartmentId()}" 
     	<c:if test="dept.getDepartmentId() == vo.getDepartmentId()"> checked="checked" </c:if> >
     				${dept.getDepartmentName()}
@@ -83,7 +83,7 @@ function validateForm(){
 			<%  } %>	
 		  </select></div>
     <div><label>manager_id</label> <select name="managerId"><option value="100">100 king</select></div>
-    <button>저장</button>
+    <button>수정</button>
     <button type="button" onclick="empDelete()">삭제</button>
     </form>
     <script>

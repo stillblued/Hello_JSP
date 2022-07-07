@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class EmpDeleteServ
- */
+
 @WebServlet("/empDelete")
 public class EmpDeleteServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +15,7 @@ public class EmpDeleteServ extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//파라미터
 		String employeeId = request.getParameter("employeeId");
-		//ㅇ매 -> delete 메서드
+		// delete 메서드
 		EmpDAO dao = new EmpDAO();
 		int cnt = dao.delete(employeeId);
 		

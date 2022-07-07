@@ -1,7 +1,6 @@
-package co.micol.prj.emp;
+package co.micol.prj.board;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,28 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(urlPatterns = { "/empList"})  
-public class EmpListServ extends HttpServlet {
+@WebServlet("/BoardUpdateServ")
+public class BoardUpdateServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public EmpListServ() {
+    
+    public BoardUpdateServ() {
         super();
-     
+       
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//파라미터
-		String id = request.getParameter("departmentId");
 		
-		//DB처리
-		EmpDAO dao = new EmpDAO();
-		request.setAttribute("list", dao.selectAll(id));
-		
-		//페이지이동
-		request.getRequestDispatcher("/WEB-INF/jsp/emp/empList.jsp")
-		       .forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	

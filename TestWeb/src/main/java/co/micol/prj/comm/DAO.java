@@ -23,14 +23,8 @@ public class DAO {
 	}
 
 	public void disconnect() {
-
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		
+		
 		if (rs != null) {
 			try {
 				psmt.close();
@@ -38,6 +32,13 @@ public class DAO {
 				e.printStackTrace();
 			}
 
+		}
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
