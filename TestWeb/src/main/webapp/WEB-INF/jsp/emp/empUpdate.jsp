@@ -90,7 +90,7 @@ function validateForm(){
     function empDelete(){
     	location.href="empDelete?employeeId=<%=vo.getEmployeeId()%>";
     }
-    document.querySelector("[name=departmentId][value='<%=vo.getDepartmentId()%>']").checked= true
+    document.querySelector("[name=departmentId][value='<%=vo.getDepartmentId()%>']").checked= true;
 	document.getElementsByName("jobId")[0].value ="<%=vo.getJobId()%>";
     </script>
 </body>

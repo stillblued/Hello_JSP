@@ -19,14 +19,10 @@ public class EmpDeleteServ extends HttpServlet {
 		EmpDAO dao = new EmpDAO();
 		int cnt = dao.delete(employeeId);
 		
-		response.getWriter()
-				.append("<script>")
-				.append("alert('"+ cnt +" 건 이 삭제완료')")
-				.append("location.href='empList';")
-			    .append("</script>");
-		//request.setAttribute("msg", cnt + "이 삭제됨");
-		//request.getRequestDispatcher("/WEB-INF/jsp/message.jsp")
-		//       .forward(request, response);
+		
+		request.setAttribute("msg", cnt + "이 삭제됨");
+		request.getRequestDispatcher("/WEB-INF/jsp/message.jsp")
+		       .forward(request, response);
 	}
 
 
