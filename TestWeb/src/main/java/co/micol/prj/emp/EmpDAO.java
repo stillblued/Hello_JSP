@@ -140,14 +140,15 @@ public class EmpDAO extends DAO {
 		
 			psmt = conn.prepareStatement(sql);
 		
-			psmt.setString(5, vo.getDepartmentId());
-			psmt.setString(7, vo.getManagerId());
-			psmt.setString(6, vo.getJobId());
-			psmt.setString(4, vo.getHireDate());
-			psmt.setString(8, vo.getEmployeeId());
-			psmt.setString(3, vo.getEmail());
 			psmt.setString(1, vo.getFirstName());
 			psmt.setString(2, vo.getLastName());
+			psmt.setString(3, vo.getEmail());
+			psmt.setString(4, vo.getHireDate());
+			psmt.setString(5, vo.getDepartmentId());
+			psmt.setString(6, vo.getJobId());
+			psmt.setString(7, vo.getManagerId());
+			psmt.setString(8, vo.getEmployeeId());
+			
 			r = psmt.executeUpdate();			
 		} catch(Exception e) {
 			e.printStackTrace();
