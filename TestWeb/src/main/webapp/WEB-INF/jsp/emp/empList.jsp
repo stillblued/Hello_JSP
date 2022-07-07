@@ -17,14 +17,15 @@
 	<button>검색</button>
 </form>
 
-<table>
-	<thead><tr><th>사번</th><th>이름</th><th>급여</th></tr></thead>
+<table border =1>
+	<thead><tr><th>사번</th><th>이름</th><th>급여</th><th>부서</th></tr></thead>
 	<tbody>  
 <c:forEach var="vo" items="${list}"> <%--주석 for() --%>
 		<tr>
 			<td>${vo.getEmployeeId()}</td>
 			<td><a href="empUpdate?employeeId=${vo.getEmployeeId()}">  ${vo.firstName} </a> </td>
 			<td>${vo.salary}</td>
+			<td>${vo.departmentId}</td>
 		</tr>
 </c:forEach>		
 	</tbody></table></body></html>

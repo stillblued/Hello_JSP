@@ -24,7 +24,7 @@ contentType="text/html; charset=UTF-8"
 <form name="frm" action="DeptUpdate" method="post">
 	부서번호<input name="departmentId" value="<%=dept.getDepartmentId()%>">
 	부서명 <input name="departmentName" value="<%=dept.getDepartmentName()%>">
-	<button type="button" onclick="validationForm()">부서등록</button>
+	<button type="button" onclick="validationForm()">부서수정</button>
 </form>
 </body>
 </html>
