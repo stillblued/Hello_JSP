@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return list;
 	}
@@ -63,7 +63,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return vo;
 	}
@@ -84,7 +84,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return cnt;
 	}
@@ -105,7 +105,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return cnt;
 	}
@@ -123,7 +123,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return cnt;
 	}
@@ -144,7 +144,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return b;
 	}
@@ -172,13 +172,13 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close();
+			disconnect();
 		}
 		return vo;
 
 	}
 
-	private void close() {
+	private void disconnect() {
 		try {
 			if (rs != null) {
 				rs.close();
