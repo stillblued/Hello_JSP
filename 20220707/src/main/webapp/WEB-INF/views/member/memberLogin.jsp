@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,12 @@
 </head>
 <body>
 
-<jsp:forward page="main.do"/>
+	<div align="center">
+
+		<h1>${message}</h1>
+		<a href="main.do">홈</a><br>
+		<a href="memberLogout.do">로그아웃</a>
+	</div>
 
 
 </body>

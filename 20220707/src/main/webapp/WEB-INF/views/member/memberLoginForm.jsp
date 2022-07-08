@@ -13,7 +13,7 @@
 			<h1>로 그 인</h1>
 		</div>
 		<div>
-			<form id="Frm" action="memberLogin.do" method="post">
+			<form id="frm" action="memberLogin.do" method="post">
 			<div>
 				<table>
 					<tr>
