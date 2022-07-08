@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.prj.MainCommand;
-
+import co.micol.prj.member.command.MemberLogin;
+import co.micol.prj.member.command.MemberLoginForm;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -20,20 +21,19 @@ public class FrontController extends HttpServlet {
       
 	private HashMap <String, Command> map = new HashMap<>();
     
-	
-	
     public FrontController() {
         super();  
     }
 
-	
 	public void init(ServletConfig config) throws ServletException {
 		//초기화메소드(맵핑부분작성)
 		map.put("/main.do", new MainCommand());
+		map.put("/memberLoginForm.do", new MemberLoginForm());
+		map.put("/memberLogin.do", new MemberLogin());
+		
 		
 	}
 
-	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//서비스실행메소드
 		request.setCharacterEncoding("utf-8");
