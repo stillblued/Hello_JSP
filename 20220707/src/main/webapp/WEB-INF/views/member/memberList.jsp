@@ -12,7 +12,7 @@
 
 <div align="center">
 <div><h1>회원목록</h1></div>
-	<table border =1>
+	<table border ="1" width = "300px">
 	<thead>
 	<tr>
 	<th>아이디</th>

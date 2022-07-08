@@ -14,7 +14,7 @@
 
 	<div align="center">
 		<div>
-			<h1>홈</h1>
+			<h1>시작하는 곳!!</h1>
 		</div>
 
 
@@ -44,12 +44,15 @@
 
 
 		</c:if>
-		<div>
-			<h3>
-				<a href="memberList.do">회원목록</a>
-			</h3>
-		</div>
 
+
+		<c:if test="${author eq 'ADMIN' }">
+			<div>
+				<h3>
+					<a href="memberList.do">회원목록</a>
+				</h3>
+			</div>
+		</c:if>
 
 
 
