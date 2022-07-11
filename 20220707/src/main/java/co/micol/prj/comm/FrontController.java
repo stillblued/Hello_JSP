@@ -63,7 +63,8 @@ public class FrontController extends HttpServlet {
 			}
 			
 			
-			viewPage = "WEB-INF/views/" + viewPage + ".jsp"; //시스템 접근 가능 폴더 더해주고
+//			viewPage = "WEB-INF/views/" + viewPage + ".jsp"; //시스템 접근 가능 폴더 더해주고
+			viewPage = viewPage + ".tiles"; //tiles 이용한 composition view pattern사용시
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response); //원하는 페이지를 호출 전달
 		} else {
