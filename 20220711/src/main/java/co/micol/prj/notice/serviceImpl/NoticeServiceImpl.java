@@ -1,5 +1,6 @@
 package co.micol.prj.notice.serviceImpl;
 
+import java.io.Console;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -80,7 +81,7 @@ public class NoticeServiceImpl implements NoticeService {
 		// 글 등록
 		int n = 0;
 		String sql = "INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL, ?, ?, ?, ?, 0, ?, ?)";
-		
+
 		try {
 			conn = dao.getConnection();
 			psmt = conn.prepareStatement(sql);
@@ -90,9 +91,9 @@ public class NoticeServiceImpl implements NoticeService {
 			psmt.setDate(4, vo.getNoticeDate());
 			psmt.setString(5, vo.getNoticeAttach());
 			psmt.setString(6, vo.getNoticeAttachDir());
-			
-			n=psmt.executeUpdate();
-		} catch(SQLException e) {
+
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
@@ -117,14 +118,26 @@ public class NoticeServiceImpl implements NoticeService {
 		// 목록검색
 		List<NoticeVO> list = new ArrayList<>();
 		NoticeVO vo;
-		String sql = "SELECT * FROM NOTICE WHERE ? LIKE %?%";
+		String sql = null;
+		switch (key) {
+		case "notice_title":
+			sql = "SELECT * FROM NOTICE WHERE NOTICE_TITLE LIKE ?";
+			break;
+		case "notice_writer":
+			sql = "SELECT * FROM NOTICE WHERE NOTICE_WRITER LIKE ?";
+			break;
+		case "notice_subject":
+			sql = "SELECT * FROM NOTICE WHERE NOTICE_SUBJECT LIKE ?";
+			break;
+		}
 
 		try {
 			conn = dao.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, key);
-			psmt.setString(2, val);
+			psmt.setString(1, val);
+			
 			rs = psmt.executeQuery();
+			
 			while (rs.next()) {
 				vo = new NoticeVO();
 				vo.setNoticeId(rs.getInt("NOTICE_ID"));

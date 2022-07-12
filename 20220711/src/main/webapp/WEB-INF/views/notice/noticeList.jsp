@@ -71,20 +71,22 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 		function noticeSearch() {
 			let key = $("#key").val();
 			let val = $("#val").val();
+			
+			
 			$.ajax({
 				url : "ajaxNoticeSearch.do",
 				type : "post",
 				data : {key : key, val : val},
 				dataType : "json",
 				success : function(result) {
-					console.log(reuslt);
+					console.log(result);
 				},
 				error : function() {
-					console.log(error);
+					
 				}
 			})
 		}
