@@ -29,7 +29,7 @@
 		<br>
 
 		<div>
-			<table border="1">
+			<table border="1" id="table">
 				<thead>
 					<tr>
 						<th width="70">글번호</th>
@@ -40,7 +40,7 @@
 						<th width="180">첨부파일</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="tb">
 					<c:choose>
 						<c:when test="${not empty list }">
 							<c:forEach items="${list }" var="list">
@@ -75,20 +75,46 @@
 		function noticeSearch() {
 			let key = $("#key").val();
 			let val = $("#val").val();
-			
-			
+
 			$.ajax({
 				url : "ajaxNoticeSearch.do",
 				type : "post",
-				data : {key : key, val : val},
+				data : {
+					key : key,
+					val : val
+				},
 				dataType : "json",
 				success : function(result) {
+
 					console.log(result);
+					if (result.length > 0) {
+						jsonHtmlConvert(result);
+					} else {
+						alert("검색한 결과가 없습니다.")
+					}
 				},
 				error : function() {
-					
+
 				}
 			})
+		}
+
+		function jsonHtmlConvert(data) {
+			$('tbody').remove();
+			var tbody = $("<tbody />");
+			$.each(data, function(index, item) {
+				var row = $("<tr />").append($("<td />").text(item.noticeId),
+						$("<td />").text(item.noticeWriter),
+						$("<td />").text(item.noticeTitle),
+						$("<td />").text(item.noticeDate),
+						$("<td />").text(item.noticeHit),
+						$("<td />").text(item.noticeAttach)
+
+				);
+				tbody.append(row);
+			});
+
+			$('table').append(tbody);
 		}
 	</script>
 

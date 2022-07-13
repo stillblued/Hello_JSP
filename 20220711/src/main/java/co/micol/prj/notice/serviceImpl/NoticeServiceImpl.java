@@ -118,24 +118,12 @@ public class NoticeServiceImpl implements NoticeService {
 		// 목록검색
 		List<NoticeVO> list = new ArrayList<>();
 		NoticeVO vo;
-		String sql = null;
-		switch (key) {
-		case "notice_title":
-			sql = "SELECT * FROM NOTICE WHERE NOTICE_TITLE LIKE ?";
-			break;
-		case "notice_writer":
-			sql = "SELECT * FROM NOTICE WHERE NOTICE_WRITER LIKE ?";
-			break;
-		case "notice_subject":
-			sql = "SELECT * FROM NOTICE WHERE NOTICE_SUBJECT LIKE ?";
-			break;
-		}
+		String sql = "SELECT * FROM NOTICE WHERE "+ key + " LIKE '%" + val + "%'";
+		
 
 		try {
 			conn = dao.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, val);
-			
 			rs = psmt.executeQuery();
 			
 			while (rs.next()) {
